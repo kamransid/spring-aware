@@ -1,0 +1,72 @@
+package com.spring.develper.springaware;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.SmartLifecycle;
+import org.springframework.context.annotation.Bean;
+import org.springframework.util.Assert;
+
+
+@SpringBootApplication
+public class SpringAwareApplication {
+
+	@Bean
+	Foo foo() {
+		Foo foo = new Foo();
+		foo.anyThing();
+		return foo;
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringAwareApplication.class, args);
+	}
+}
+
+class Foo implements SmartLifecycle {
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isRunning() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int getPhase() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isAutoStartup() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void stop(Runnable callback) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+class Bar {
+
+}
+	
